@@ -9,4 +9,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string-array name="categories">
+        <item name="spinner">Select the category</item>
+        <item name="spinner_item_food">Food</item>
+        <item name="spinner_item_drinks">Drinks</item>
+    </string-array>
+
 </resources>
