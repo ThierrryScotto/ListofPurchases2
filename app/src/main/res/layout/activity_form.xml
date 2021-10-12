@@ -8,8 +8,8 @@
 
     <EditText
         android:id="@+id/etProductName"
-        android:layout_width="258dp"
-        android:layout_height="50dp"
+        android:layout_width="378dp"
+        android:layout_height="82dp"
         android:layout_marginTop="112dp"
         android:ems="10"
         android:hint="Product name"
@@ -21,21 +21,34 @@
 
     <Spinner
         android:id="@+id/spCategory"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_width="372dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="40dp"
         android:entries="@array/categories"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etProductName" />
 
     <Button
         android:id="@+id/btSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="91dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="140dp"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="277dp" />
+        app:layout_constraintTop_toTopOf="@+id/spCategory" />
+
+    <Button
+        android:id="@+id/btCancel"
+        android:layout_width="91dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="140dp"
+        android:text="Cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spCategory" />
 </androidx.constraintlayout.widget.ConstraintLayout>
