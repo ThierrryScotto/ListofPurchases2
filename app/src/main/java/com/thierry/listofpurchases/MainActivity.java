@@ -1,5 +1,6 @@
 package com.thierry.listofpurchases;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,13 +32,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lvProducts = findViewById(R.id.lvProducts);
-        loadList();
+        loadProducts();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MainActivity.this, FormActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -47,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    // Function that is part of the application lifecycle
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        loadProducts();
     }
 
     @Override
@@ -64,19 +73,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void loadList(){
-        Product p1 = new Product("Coca",  "Drinks");
-        Product p2 = new Product("Fanta",  "Drinks");
-        Product p3 = new Product("Pepsi",  "Drinks");
-        Product p4 = new Product("Hot dog",  "Food");
-        Product p5 = new Product("Sushi",  "Food");
+    private void loadProducts(){
+        productsList = ProductDAO.getProducts(this);
 
-        productsList = new ArrayList<>();
-        productsList.add(p1);
-        productsList.add(p2);
-        productsList.add(p3);
-        productsList.add(p4);
-        productsList.add(p5);
+        if (productsList.size() == 0) {
+            Product fake = new Product("Empty List",  "");
+            productsList.add(fake);
+            lvProducts.setEnabled(false);
+        } else {
+            lvProducts.setEnabled(true);
+        }
 
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, productsList);
         lvProducts.setAdapter(adapter);
