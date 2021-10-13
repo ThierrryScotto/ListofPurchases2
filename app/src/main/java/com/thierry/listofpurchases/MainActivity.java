@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -35,10 +36,24 @@ public class MainActivity extends AppCompatActivity {
         loadProducts();
 
         FloatingActionButton fab = findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, FormActivity.class);
+                intent.putExtra("action", "add");
+                startActivity(intent);
+            }
+        });
+
+        lvProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int posistion, long l) {
+                int idProduct = productsList.get(posistion).getId();
+
+                Intent intent = new Intent(MainActivity.this, FormActivity.class);
+                intent.putExtra("action", "edit");
+                intent.putExtra("idProduct", idProduct);
                 startActivity(intent);
             }
         });
@@ -56,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         loadProducts();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
     }
 
     @Override

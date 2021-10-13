@@ -15,6 +15,8 @@ public class FormActivity extends AppCompatActivity {
     private Spinner spCategory;
     private Button btSave;
     private Button btCancel;
+    private String action;
+    private Product product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,11 @@ public class FormActivity extends AppCompatActivity {
         spCategory = findViewById(R.id.spCategory);
         btSave = findViewById(R.id.btSave);
         btCancel = findViewById(R.id.btCancel);
+
+        action = getIntent().getStringExtra("action");
+        if (action.equals("edit")) {
+            loadForm();
+        }
 
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,23 +48,44 @@ public class FormActivity extends AppCompatActivity {
         });
     }
 
+    private void loadForm() {
+        int id = getIntent().getIntExtra("idProduct", 0);
+        product = ProductDAO.getProductById(this, id);
+        etProductName.setText( product.getName() );
+
+        String[] categories = getResources().getStringArray(R.array.categories);
+        for (int i = 1; i < categories.length ;i++){
+            if( product.getCategory().equals( categories[i] ) ){
+                spCategory.setSelection(i);
+                break;
+            }
+        }
+    }
+
     private void save(){
         String name = etProductName.getText().toString();
 
         if (name.isEmpty() || spCategory.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_LONG);
         } else {
-            Product product = new Product();
+            if( action.equals("add")) {
+                product = new Product();
+            }
             product.setName( name );
             product.setCategory( spCategory.getSelectedItem().toString() );
-
-            ProductDAO.add(this, product);
-            cleanForm();
+            if( action.equals("add")) {
+                ProductDAO.add(this, product);
+                etProductName.setText("");
+                spCategory.setSelection(0, true);
+            }else{
+                ProductDAO.edit(this, product);
+                finish();
+            }
         }
     }
 
     private void cleanForm(){
-        etProductName.setText("");
+        etProductName.setText( "" );
         spCategory.setSelection(0, true);
     }
 }
