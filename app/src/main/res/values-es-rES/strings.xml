@@ -19,10 +19,8 @@
     <string name="product_name_hint">Nombre del producto</string>
     <string name="app_title">Lista de compras</string>
     <string name="form_of_payment">Métodos de pago</string>
-    <string name="money">Dinero</string>
-    <string name="credit_card">Tarjeta de crédito</string>
     <string name="category_text">Categoría</string>
-    <string name="pix">Pix</string>
+    <string name="quantity">La cantidad</string>
     <string name="save">Guardar</string>
     <string name="cancel">Cancelar</string>
 
