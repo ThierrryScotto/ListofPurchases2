@@ -1,11 +1,13 @@
 package com.thierry.listofpurchases;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -57,6 +59,32 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        lvProducts.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                delete(position);
+                return true;
+            }
+        });
+    }
+
+    private void delete(int position){
+        final Product prod = productsList.get( position );
+        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Delete...");
+        alert.setIcon(android.R.drawable.ic_delete);
+        alert.setMessage("Allow the delete " + prod.getName() +"?");
+        alert.setNeutralButton("Cancel", null);
+
+        alert.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ProductDAO.delete(MainActivity.this, prod.getId());
+                loadProducts();
+            }
+        });
+        alert.show();
     }
 
     @Override
