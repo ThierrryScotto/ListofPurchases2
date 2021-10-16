@@ -14,6 +14,7 @@ public class ProductDAO {
 
         values.put("name", product.getName());
         values.put("category", product.getCategory());
+        values.put("quantity", product.getQuantity());
 
         Database database = new Database(context);
         SQLiteDatabase db = database.getWritableDatabase();
@@ -26,6 +27,7 @@ public class ProductDAO {
 
         values.put("name", product.getName());
         values.put("category", product.getCategory());
+        values.put("quantity", product.getQuantity());
 
         Database database = new Database(context);
         SQLiteDatabase db = database.getWritableDatabase();
@@ -56,6 +58,7 @@ public class ProductDAO {
                 product.setId(cursor.getInt(0));
                 product.setName(cursor.getString(1));
                 product.setCategory(cursor.getString(2));
+                product.setQuantity(cursor.getString(3));
                 list.add(product);
             } while (cursor.moveToNext());
         }
@@ -76,6 +79,7 @@ public class ProductDAO {
             product.setId(cursor.getInt(0));
             product.setName(cursor.getString(1));
             product.setCategory(cursor.getString(2));
+            product.setQuantity(cursor.getString(3));
 
             return product;
         }

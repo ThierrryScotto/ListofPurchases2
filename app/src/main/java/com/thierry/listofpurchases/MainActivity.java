@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         productsList = ProductDAO.getProducts(this);
 
         if (productsList.size() == 0) {
-            Product fake = new Product("Empty List",  "");
+            Product fake = new Product("Empty List",  "", "0");
             productsList.add(fake);
             lvProducts.setEnabled(false);
         } else {

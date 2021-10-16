@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class FormActivity extends AppCompatActivity {
 
     private EditText etProductName;
+    private EditText etQuantity;
     private Spinner spCategory;
     private Button btSave;
     private Button btCancel;
@@ -24,6 +25,7 @@ public class FormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_form);
 
         etProductName = findViewById(R.id.etProductName);
+        etQuantity = findViewById(R.id.etQuantity);
         spCategory = findViewById(R.id.spCategory);
         btSave = findViewById(R.id.btSave);
         btCancel = findViewById(R.id.btCancel);
@@ -52,6 +54,7 @@ public class FormActivity extends AppCompatActivity {
         int id = getIntent().getIntExtra("idProduct", 0);
         product = ProductDAO.getProductById(this, id);
         etProductName.setText( product.getName() );
+        etQuantity.setText( product.getQuantity() );
 
         String[] categories = getResources().getStringArray(R.array.categories);
         for (int i = 1; i < categories.length ;i++){
@@ -64,6 +67,7 @@ public class FormActivity extends AppCompatActivity {
 
     private void save(){
         String name = etProductName.getText().toString();
+        String quantity = etQuantity.getText().toString();
 
         if (name.isEmpty() || spCategory.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_LONG);
@@ -72,10 +76,12 @@ public class FormActivity extends AppCompatActivity {
                 product = new Product();
             }
             product.setName( name );
+            product.setQuantity( quantity );
             product.setCategory( spCategory.getSelectedItem().toString() );
             if( action.equals("add")) {
                 ProductDAO.add(this, product);
                 etProductName.setText("");
+                etQuantity.setText("");
                 spCategory.setSelection(0, true);
             }else{
                 ProductDAO.edit(this, product);
@@ -86,6 +92,7 @@ public class FormActivity extends AppCompatActivity {
 
     private void cleanForm(){
         etProductName.setText( "" );
+        etQuantity.setText( "0" );
         spCategory.setSelection(0, true);
     }
 }

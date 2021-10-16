@@ -28,7 +28,7 @@
         android:entries="@array/categories"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.985"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber"
+        app:layout_constraintStart_toEndOf="@+id/etQuantity"
         app:layout_constraintTop_toTopOf="@+id/etProductName" />
 
     <TextView
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/etQuantity"
         android:layout_width="297dp"
         android:layout_height="53dp"
         android:layout_marginStart="32dp"
