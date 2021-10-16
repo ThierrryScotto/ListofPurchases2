@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         alert.setMessage("Allow the delete " + prod.getName() +"?");
         alert.setNeutralButton("Cancel", null);
 
-        alert.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ProductDAO.delete(MainActivity.this, prod.getId());

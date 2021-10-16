@@ -19,7 +19,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE IF NOT EXISTS Products( " +
                 " id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                 "name TEXT NOT NULL," +
-                "category TEXT NOT NULL," +
+                "supermarket TEXT NOT NULL," +
                 "quantity TEXT);");
     }
 

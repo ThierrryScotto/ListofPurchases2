@@ -6,22 +6,22 @@ import java.security.PublicKey;
 
 public class Product {
     public int id;
-    public String name, category;
+    public String name, supermarket;
     public String quantity;
 
     public Product(){
 
     }
 
-    public Product(String name, String category, String quantity) {
+    public Product(String name, String supermarket, String quantity) {
         this.name = name;
-        this.category = category;
+        this.supermarket = supermarket;
         this.quantity = quantity;
     }
 
     @Override
     public String toString() {
-        return name + " | " + category + " | " + quantity;
+        return name + " | " + supermarket + " | " + quantity;
     }
 
     public int getId() {
@@ -40,12 +40,12 @@ public class Product {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public String getSupermarket() {
+        return supermarket;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setSupermarket(String category) {
+        this.supermarket = category;
     }
 
     public String getQuantity() {

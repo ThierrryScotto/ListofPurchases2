@@ -10,17 +10,19 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-    <string-array name="categories">
-        <item name="spinner">Select the category</item>
-        <item name="spinner_item_food">Food</item>
-        <item name="spinner_item_drinks">Drinks</item>
+    <string-array name="listOfSupermarkets">
+        <item name="spinner">Select the supermarket</item>
+        <item name="spinner_item_0">Dia</item>
+        <item name="spinner_item_1">Carbone</item>
+        <item name="spinner_item_2">Carrefour</item>
+        <item name="spinner_item_3">Big</item>
     </string-array>
 
     <string name="product_name_hint">Product name</string>
     <string name="app_title">List of Purchases</string>
     <string name="form_of_payment">Form of payment</string>
     <string name="quantity">Quantity</string>
-    <string name="category_text">Category</string>
+    <string name="supermarket">Supermarket</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
 

@@ -20,10 +20,10 @@
         app:layout_constraintTop_toBottomOf="@+id/txtTittle" />
 
     <Spinner
-        android:id="@+id/spCategory"
+        android:id="@+id/spSupermarket"
         android:layout_width="168dp"
         android:layout_height="25dp"
-        android:entries="@array/categories"
+        android:entries="@array/listOfSupermarkets"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:text="@string/category_text"
+        android:text="@string/supermarket"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
@@ -48,11 +48,11 @@
         android:layout_width="119dp"
         android:layout_height="50dp"
         android:layout_marginTop="112dp"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spCategory" />
+        app:layout_constraintTop_toTopOf="@+id/spSupermarket" />
 
     <Button
         android:id="@+id/btCancel"
@@ -63,7 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.417"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spCategory" />
+        app:layout_constraintTop_toTopOf="@+id/spSupermarket" />
 
     <TextView
         android:id="@+id/txtTittle"

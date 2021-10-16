@@ -20,23 +20,25 @@
         app:layout_constraintTop_toBottomOf="@+id/txtTittle" />
 
     <Spinner
-        android:id="@+id/spCategory"
+        android:id="@+id/spSupermarket"
         android:layout_width="218dp"
         android:layout_height="26dp"
         android:layout_marginTop="108dp"
         android:layout_marginEnd="120dp"
-        android:entries="@array/categories"
+        android:entries="@array/listOfSupermarkets"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toEndOf="@+id/etQuantity"
-        app:layout_constraintTop_toTopOf="@+id/etProductName" />
+        app:layout_constraintTop_toTopOf="@+id/etProductName"
+        app:layout_constraintVertical_bias="0.042" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="@string/category_text"
+        android:text="@string/supermarket"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.594"
@@ -51,7 +53,7 @@
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toEndOf="@+id/btCancel"
         app:layout_constraintTop_toTopOf="@+id/etProductName"
         app:layout_constraintVertical_bias="0.018" />
@@ -60,14 +62,12 @@
         android:id="@+id/btCancel"
         android:layout_width="143dp"
         android:layout_height="48dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="47dp"
         android:text="@string/cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spCategory"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/spSupermarket" />
 
     <TextView
         android:id="@+id/txtTittle"

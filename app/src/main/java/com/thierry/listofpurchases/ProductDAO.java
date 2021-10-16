@@ -13,7 +13,7 @@ public class ProductDAO {
         ContentValues values = new ContentValues();
 
         values.put("name", product.getName());
-        values.put("category", product.getCategory());
+        values.put("supermarket", product.getSupermarket());
         values.put("quantity", product.getQuantity());
 
         Database database = new Database(context);
@@ -26,7 +26,7 @@ public class ProductDAO {
         ContentValues values = new ContentValues();
 
         values.put("name", product.getName());
-        values.put("category", product.getCategory());
+        values.put("category", product.getSupermarket());
         values.put("quantity", product.getQuantity());
 
         Database database = new Database(context);
@@ -57,7 +57,7 @@ public class ProductDAO {
                 Product product = new Product();
                 product.setId(cursor.getInt(0));
                 product.setName(cursor.getString(1));
-                product.setCategory(cursor.getString(2));
+                product.setSupermarket(cursor.getString(2));
                 product.setQuantity(cursor.getString(3));
                 list.add(product);
             } while (cursor.moveToNext());
@@ -78,7 +78,7 @@ public class ProductDAO {
             Product product = new Product();
             product.setId(cursor.getInt(0));
             product.setName(cursor.getString(1));
-            product.setCategory(cursor.getString(2));
+            product.setSupermarket(cursor.getString(2));
             product.setQuantity(cursor.getString(3));
 
             return product;
