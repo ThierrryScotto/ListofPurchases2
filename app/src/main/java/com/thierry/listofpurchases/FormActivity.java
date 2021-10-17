@@ -12,7 +12,8 @@ import android.widget.Toast;
 public class FormActivity extends AppCompatActivity {
 
     private EditText etProductName;
-    private Spinner spCategory;
+    private EditText etQuantity;
+    private Spinner spSupermarket;
     private Button btSave;
     private Button btCancel;
     private String action;
@@ -24,7 +25,8 @@ public class FormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_form);
 
         etProductName = findViewById(R.id.etProductName);
-        spCategory = findViewById(R.id.spCategory);
+        etQuantity = findViewById(R.id.etQuantity);
+        spSupermarket = findViewById(R.id.spSupermarket);
         btSave = findViewById(R.id.btSave);
         btCancel = findViewById(R.id.btCancel);
 
@@ -52,11 +54,12 @@ public class FormActivity extends AppCompatActivity {
         int id = getIntent().getIntExtra("idProduct", 0);
         product = ProductDAO.getProductById(this, id);
         etProductName.setText( product.getName() );
+        etQuantity.setText( product.getQuantity() );
 
-        String[] categories = getResources().getStringArray(R.array.categories);
-        for (int i = 1; i < categories.length ;i++){
-            if( product.getCategory().equals( categories[i] ) ){
-                spCategory.setSelection(i);
+        String[] supermarkets = getResources().getStringArray(R.array.listOfSupermarkets);
+        for (int i = 1; i < supermarkets.length ;i++){
+            if( product.getSupermarket().equals( supermarkets[i] ) ){
+                spSupermarket.setSelection(i);
                 break;
             }
         }
@@ -64,19 +67,22 @@ public class FormActivity extends AppCompatActivity {
 
     private void save(){
         String name = etProductName.getText().toString();
+        String quantity = etQuantity.getText().toString();
 
-        if (name.isEmpty() || spCategory.getSelectedItemPosition() == 0) {
+        if (name.isEmpty() || spSupermarket.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_LONG);
         } else {
             if( action.equals("add")) {
                 product = new Product();
             }
             product.setName( name );
-            product.setCategory( spCategory.getSelectedItem().toString() );
+            product.setQuantity( quantity );
+            product.setSupermarket( spSupermarket.getSelectedItem().toString() );
             if( action.equals("add")) {
                 ProductDAO.add(this, product);
                 etProductName.setText("");
-                spCategory.setSelection(0, true);
+                etQuantity.setText("");
+                spSupermarket.setSelection(0, true);
             }else{
                 ProductDAO.edit(this, product);
                 finish();
@@ -86,6 +92,7 @@ public class FormActivity extends AppCompatActivity {
 
     private void cleanForm(){
         etProductName.setText( "" );
-        spCategory.setSelection(0, true);
+        etQuantity.setText( "0" );
+        spSupermarket.setSelection(0, true);
     }
 }

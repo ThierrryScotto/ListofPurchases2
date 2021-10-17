@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">List of Purchases</string>
+    <string name="app_name">Lista de compras</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -11,19 +11,19 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string-array name="listOfSupermarkets">
-        <item name="spinner">Select the supermarket</item>
+        <item name="spinner">Selecione o Super mercado</item>
         <item name="spinner_item_0">Dia</item>
         <item name="spinner_item_1">Carbone</item>
         <item name="spinner_item_2">Carrefour</item>
         <item name="spinner_item_3">Big</item>
     </string-array>
 
-    <string name="product_name_hint">Product name</string>
-    <string name="app_title">List of Purchases</string>
-    <string name="form_of_payment">Form of payment</string>
-    <string name="quantity">Quantity</string>
-    <string name="supermarket">Supermarket</string>
-    <string name="save">Save</string>
-    <string name="cancel">Cancel</string>
+    <string name="product_name_hint">Nome do produto</string>
+    <string name="app_title">Lista de compras</string>
+    <string name="form_of_payment">Formas de pagamentos</string>
+    <string name="supermarket">Super mercado</string>
+    <string name="quantity">Quantidade</string>
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>

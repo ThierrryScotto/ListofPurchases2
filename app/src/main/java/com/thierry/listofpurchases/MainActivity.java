@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         alert.setMessage("Allow the delete " + prod.getName() +"?");
         alert.setNeutralButton("Cancel", null);
 
-        alert.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ProductDAO.delete(MainActivity.this, prod.getId());
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         productsList = ProductDAO.getProducts(this);
 
         if (productsList.size() == 0) {
-            Product fake = new Product("Empty List",  "");
+            Product fake = new Product("Empty List",  "", "0");
             productsList.add(fake);
             lvProducts.setEnabled(false);
         } else {

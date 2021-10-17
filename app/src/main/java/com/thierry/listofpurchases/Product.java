@@ -2,22 +2,26 @@ package com.thierry.listofpurchases;
 
 import androidx.annotation.NonNull;
 
+import java.security.PublicKey;
+
 public class Product {
     public int id;
-    public String name, category;
+    public String name, supermarket;
+    public String quantity;
 
     public Product(){
 
     }
 
-    public Product(String name, String category) {
+    public Product(String name, String supermarket, String quantity) {
         this.name = name;
-        this.category = category;
+        this.supermarket = supermarket;
+        this.quantity = quantity;
     }
 
     @Override
     public String toString() {
-        return name + " | " + category;
+        return name + " | " + supermarket + " | " + quantity;
     }
 
     public int getId() {
@@ -36,11 +40,19 @@ public class Product {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public String getSupermarket() {
+        return supermarket;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setSupermarket(String category) {
+        this.supermarket = category;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 }
